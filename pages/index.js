@@ -1,11 +1,22 @@
 import styles from "../styles/Home.module.css";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 export default function Home({ data, data1 }) {
+  const url = data[0].url;
+  const url1 = data1[0].url;
+
   const router = useRouter();
   const onClick = () => {
     router.reload();
   };
+  const myLoader = ({ url }) => {
+    return url;
+  };
+  const myLoader1 = ({ url1 }) => {
+    return url1;
+  };
+
   return (
     <div className={styles.body}>
       <div className={styles.title}>
@@ -14,10 +25,20 @@ export default function Home({ data, data1 }) {
       </div>
       <div className={styles.images}>
         <button onClick={onClick}>
-          <img src={data[0].url} className={styles.image} />
+          <Image
+            loader={myLoader}
+            src={url}
+            className={styles.image}
+            layout="fill"
+          />
         </button>
         <button onClick={onClick}>
-          <img src={data1[0].url} className={styles.image} />
+          <Image
+            loader={myLoader1}
+            src={url1}
+            className={styles.image}
+            layout="fill"
+          />
         </button>
       </div>
     </div>
