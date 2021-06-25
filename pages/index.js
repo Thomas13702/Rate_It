@@ -1,6 +1,7 @@
 import styles from "../styles/Home.module.css";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { NEXT_URL } from "../config/index";
 
 export default function Home({ data, data1 }) {
   const url = data[0].url;
@@ -46,7 +47,7 @@ export default function Home({ data, data1 }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(`http://localhost:3000/api/image`, {
+  const res = await fetch(`${NEXT_URL}/api/image`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -54,7 +55,7 @@ export async function getServerSideProps() {
   });
   const data = await res.json();
 
-  const res1 = await fetch(`http://localhost:3000/api/image`, {
+  const res1 = await fetch(`${NEXT_URL}/api/image`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
