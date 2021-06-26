@@ -11,12 +11,12 @@ export default function Home({ data, data1 }) {
   const onClick = () => {
     router.reload();
   };
-  const myLoader = ({ url }) => {
-    return url;
-  };
-  const myLoader1 = ({ url1 }) => {
-    return url1;
-  };
+  // const myLoader = ({ url }) => {
+  //   return url;
+  // };
+  // const myLoader1 = ({ url1 }) => {
+  //   return url1;
+  // };
 
   return (
     <div className={styles.body}>
@@ -26,20 +26,22 @@ export default function Home({ data, data1 }) {
       </div>
       <div className={styles.images}>
         <button onClick={onClick}>
-          <Image
+          {/* <Image
             loader={myLoader}
             src={url}
             className={styles.image}
             layout="fill"
-          />
+          /> */}
+          <img src={url} alt="" className={styles.image} />
         </button>
         <button onClick={onClick}>
-          <Image
+          {/* <Image
             loader={myLoader1}
             src={url1}
             className={styles.image}
             layout="fill"
-          />
+          /> */}
+          <img src={url1} alt="" className={styles.image} />
         </button>
       </div>
     </div>
