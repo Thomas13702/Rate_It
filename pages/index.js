@@ -51,21 +51,21 @@ export default function Home({ data, data1 }) {
 export async function getServerSideProps() {
   const res = await fetch(`${NEXT_URL}/api/image`, {
     method: "GET",
-    // headers: {
-    //   "User-Agent":
-    //     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36",
-    //   Accept: "application/json; charset=UTF-8",
-    // },
+    headers: {
+      "User-Agent":
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36",
+      Accept: "application/json; charset=UTF-8",
+    },
   });
   const data = await res.json();
 
   const res1 = await fetch(`${NEXT_URL}/api/image`, {
     method: "GET",
-    // headers: {
-    //   "User-Agent":
-    //     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36",
-    //   Accept: "application/json; charset=UTF-8",
-    // },
+    headers: {
+      "User-Agent":
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36",
+      Accept: "application/json; charset=UTF-8",
+    },
   });
   const data1 = await res1.json();
 
