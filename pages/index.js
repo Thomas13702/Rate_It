@@ -4,9 +4,6 @@ import Image from "next/image";
 import { NEXT_URL } from "../config/index";
 
 export default function Home({ data, data1 }) {
-  const url = data[0].url;
-  const url1 = data1[0].url;
-
   const router = useRouter();
   const onClick = () => {
     router.reload();
@@ -32,7 +29,7 @@ export default function Home({ data, data1 }) {
             className={styles.image}
             layout="fill"
           /> */}
-          <img src={url} alt="" className={styles.image} />
+          <img src={data[0].url} alt="" className={styles.image} />
         </button>
         <button onClick={onClick}>
           {/* <Image
@@ -41,7 +38,7 @@ export default function Home({ data, data1 }) {
             className={styles.image}
             layout="fill"
           /> */}
-          <img src={url1} alt="" className={styles.image} />
+          <img src={data1[0].url} alt="" className={styles.image} />
         </button>
       </div>
     </div>
@@ -58,6 +55,8 @@ export async function getServerSideProps() {
     },
   });
   const data = await res.json();
+
+  console.log(data);
 
   const res1 = await fetch(`${NEXT_URL}/api/image`, {
     method: "GET",
