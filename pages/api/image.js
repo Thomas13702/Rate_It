@@ -12,7 +12,7 @@ export default async (req, res) => {
     });
 
     const results = await google.scrape(randomWords(), 1);
-    res.json(results);
+    res.send(results);
   } else {
     res.setHeader("Allow", ["GET"]);
     res.status(405).json({ message: `Method ${req.method} is not allowed` });
